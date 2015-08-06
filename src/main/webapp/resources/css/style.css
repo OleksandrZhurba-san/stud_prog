@@ -1,0 +1,161 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+
+*{margin:0;padding:0;}
+
+body{
+    background:#567;
+    font-family:'Open Sans',sans-serif;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.button{
+    width:100px;
+    background:#3399cc;
+    display:block;
+    margin:0 auto;
+    margin-top:1%;
+    padding:10px;
+    text-align:center;
+    text-decoration:none;
+    color:#fff;
+    cursor:pointer;
+    transition:background .3s;
+    -webkit-transition:background .3s;
+}
+
+.button:hover{
+    background:#2288bb;
+}
+
+#login{
+    width:400px;
+    margin:0 auto;
+    margin-top:8px;
+    margin-bottom:2%;
+    transition:opacity 1s;
+    -webkit-transition:opacity 1s;
+}
+
+#login h1{
+    background:#3399cc;
+    padding:20px 0;
+    font-size:140%;
+    font-weight:300;
+    text-align:center;
+    color:#fff;
+}
+
+form{
+    background:#f0f0f0;
+    padding:6% 4%;
+}
+
+input[type="login"],
+input[type="password"]{
+    width:92%;
+    background:#fff;
+    margin-bottom:4%;
+    border:1px solid #ccc;
+    padding:4%;
+    font-family:'Open Sans',sans-serif;
+    font-size:95%;
+    color:#555;
+}
+
+input[type="submit"]{
+    width:100%;
+    background:#3399cc;
+    border:0;
+    padding:4%;
+    font-family:'Open Sans',sans-serif;
+    font-size:100%;
+    color:#fff;
+    cursor:pointer;
+    transition:background .3s;
+    -webkit-transition:background .3s;
+}
+
+input[type="submit"]:hover{
+    background:#2288bb;
+}
+
+#opening_list {
+    border-radius: 0;
+    height: 35px;
+    padding: 5px;
+    border: 0;
+    font-family:'Open Sans',sans-serif;
+    font-size: 95%;
+    line-height: 1;
+    background: url("/resources/images/arrow.png")
+    -webkit-appearance: none;
+    width: 100%;
+}
+
+.nav ul {
+    list-style: none;
+    background-color: #444;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+.nav li {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2em;
+    line-height: 40px;
+    height: 40px;
+    border-bottom: 1px solid #888;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    transition: .3s background-color;
+}
+
+.nav a:hover {
+    background-color: #005f5f;
+}
+
+.nav a.active {
+    background-color: #fff;
+    color: #444;
+    cursor: default;
+}
+
+@media screen and (min-width: 600px) {
+    .nav li {
+        width: 240px;
+        border-bottom: none;
+        height: 50px;
+        line-height: 50px;
+        font-size: 1.4em;
+    }
+
+    /* Option 1 - Display Inline */
+    .nav li {
+        display: inline-block;
+        margin-right: -4px;
+    }
+}
+#title {
+    filter: blur(10px);
+}
+
+h1 {
+    font-size: 2em;
+    margin-top: 50px;
+    opacity: 1;
+    position: relative;
+    color: #E3E3EB;
+    font-weight: 400;
+    text-align: center;
+    margin-right: 10px;
+    padding-bottom: 10px;
+    display: inline-block;
+    border-bottom: 3px solid #E3E3EB;
+    letter-spacing: 10px;
+}
