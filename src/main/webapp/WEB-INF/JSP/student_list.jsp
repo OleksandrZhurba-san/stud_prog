@@ -20,8 +20,17 @@
     </ul>
 
 </div>
-<table id="table_student" align="center">
-    <p id="p_student_list"><h2>Список студентов</h2></p>
+<section class="links">
+    <nav class="link-effect-2" id="link-effect-2">
+        <a href="create_student"><span data-hover="Добавить">Добавить студента</span></a>
+        <a href="delete_student"><span data-hover="Удалить">Удалить студента</span></a>
+        <a href="modify_student"><span data-hover="Модифицировать">Модифицировать студента</span></a>
+        <a href="view_student"><span data-hover="Просмотр">Просмотр успеваемости студента</span></a>
+    </nav>
+</section>
+
+<table align="center">
+    <h2>Список студентов</h2>
     <tr>
         <th></th>
         <th>Фамилия</th>
@@ -29,13 +38,13 @@
         <th>Группа</th>
         <th>Дата поступления</th>
     </tr>
-    <c:forEach var="person" items="${studentList}">
+    <c:forEach var="student" items="${studentList}">
         <tr>
-            <td><input type="checkbox" name="checkboxStudent"></td>
-            <td><c:out value="${person.first_name}"/></td>
-            <td><c:out value="${person.last_name}"/></td>
-            <td><c:out value="${person.group}"/></td>
-            <td><c:out value="${person.date}"/></td>
+            <td><input type="checkbox"></td>
+            <td><c:out value="${student.first_name}"/></td>
+            <td><c:out value="${student.last_name}"/></td>
+            <td><c:out value="${student.group}"/></td>
+            <td><c:out value="${student.date}"/></td>
         </tr>
     </c:forEach>
 
