@@ -31,4 +31,12 @@
         <servlet-name>LogoutController</servlet-name>
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>DisciplineController</servlet-name>
+        <servlet-class>controllers.DisciplineController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DisciplineController</servlet-name>
+        <url-pattern>/discipline</url-pattern>
+    </servlet-mapping>
 </web-app>
