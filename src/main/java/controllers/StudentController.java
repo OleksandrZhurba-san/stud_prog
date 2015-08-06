@@ -19,6 +19,7 @@ public class StudentController extends HttpServlet{
         List<Students> studentsList = services.loadStudents();
         req.setAttribute("studentList", studentsList);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/JSP/student_list.jsp");
+        dispatcher.forward(req,resp);
     }
 
     @Override
