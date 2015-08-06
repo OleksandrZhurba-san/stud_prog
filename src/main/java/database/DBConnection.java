@@ -37,6 +37,7 @@ public class DBConnection {
             getRoleById = connection.prepareStatement("SELECT * FROM role WHERE id = ?");
             getUserDataByLogin = connection.prepareStatement("SELECT * FROM user WHERE login = ?");
             getUserRoleByUserId = connection.prepareStatement("SELECT * FROM user_role WHERE id_user = ?");
+            loadStudents = connection.prepareStatement("SELECT * FROM students");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -125,7 +126,7 @@ public class DBConnection {
                 student.setFirst_name(resultSet.getString("name"));
                 student.setLast_name(resultSet.getString("last_name"));
                 student.setGroup(resultSet.getString("group"));
-                student.setDate(resultSet.getString("data"));
+                student.setDate(resultSet.getString("date"));
                 studentsList.add(student);
             }
         } catch (SQLException e) {
