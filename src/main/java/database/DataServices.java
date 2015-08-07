@@ -74,4 +74,10 @@ public class DataServices {
         List<Students> students = connection.loadStudents();
         return students;
     }
+
+    public List<String> loadDiscipline() {
+        DBConnection connection = getDBConnection();
+        List<String> discipline = connection.loadDiscipline();
+        return discipline;
+    }
 }

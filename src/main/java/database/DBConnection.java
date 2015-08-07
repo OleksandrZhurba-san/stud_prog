@@ -38,6 +38,8 @@ public class DBConnection {
             getUserDataByLogin = connection.prepareStatement("SELECT * FROM user WHERE login = ?");
             getUserRoleByUserId = connection.prepareStatement("SELECT * FROM user_role WHERE id_user = ?");
             loadStudents = connection.prepareStatement("SELECT * FROM students");
+            createNewStudent = connection.prepareStatement("INSERT INTO students (name, group, date) VALUES (?, ?, ?, ?)");
+            loadDisciplines = connection.prepareStatement("SELECT * FROM discipline");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -48,6 +50,7 @@ public class DBConnection {
             getRoleById.close();
             getUserDataByLogin.close();
             getUserRoleByUserId.close();
+            loadDisciplines.close();
         } catch (SQLException e){
             e.printStackTrace();
         }
@@ -133,5 +136,22 @@ public class DBConnection {
             e.printStackTrace();
         }
         return studentsList;
+    }
+    public void CreateNewStudent (){
+
+    }
+
+    public List<String> loadDiscipline() {
+        resultSet = null;
+        List<String> disciplines = new LinkedList<String>();
+        try{
+            resultSet = loadDisciplines.executeQuery();
+            while (resultSet.next()) {
+                disciplines.add(resultSet.getString("discipline"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return disciplines;
     }
 }
