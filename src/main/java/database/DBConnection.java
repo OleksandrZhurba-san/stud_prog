@@ -41,7 +41,7 @@ public class DBConnection {
             loadStudents = connection.prepareStatement("SELECT * FROM students");
             addStudent = connection.prepareStatement("INSERT INTO `students` (`name`, `lastname`, `group`, `date`) VALUES (?,?,?,?)");
             loadDisciplines = connection.prepareStatement("SELECT * FROM discipline");
-            addDiscipline = connection.prepareStatement("");
+            addDiscipline = connection.prepareStatement("INSERT INTO `discipline` (`disciple`) VALUE (?)");
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -166,6 +166,13 @@ public class DBConnection {
             addStudent.setString(3, group);
             addStudent.setString(4, date);
             addStudent.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public void addDiscipline(String discipline) {
+        try {
+            addDiscipline.setString(1,discipline);
         } catch (SQLException e) {
             e.printStackTrace();
         }

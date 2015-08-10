@@ -84,4 +84,8 @@ public class DataServices {
         List<String> discipline = connection.loadDiscipline();
         return discipline;
     }
+    public void addDiscipline (String discipline) {
+        DBConnection connection = getDBConnection();
+        connection.addDiscipline(discipline);
+    }
 }
