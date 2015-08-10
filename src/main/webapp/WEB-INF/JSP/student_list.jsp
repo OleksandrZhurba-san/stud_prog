@@ -22,10 +22,10 @@
 </div>
 <section class="links">
     <nav class="link-effect-2" id="link-effect-2">
-        <a href="create_student"><span data-hover="Добавить">Добавить студента</span></a>
-        <a href="delete_student"><span data-hover="Удалить">Удалить студента</span></a>
-        <a href="modify_student"><span data-hover="Модифицировать">Модифицировать студента</span></a>
-        <a href="view_student"><span data-hover="Просмотр">Просмотр успеваемости студента</span></a>
+        <a href="add_student"><span data-hover="Добавить">Добавить студента</span></a>
+        <a href="#"><span data-hover="Удалить">Удалить студента</span></a>
+        <a href="#"><span data-hover="Модифицировать">Модифицировать студента</span></a>
+        <a href="#"><span data-hover="Просмотр">Просмотр успеваемости студента</span></a>
     </nav>
 </section>
 
@@ -47,8 +47,6 @@
             <td><c:out value="${student.date}"/></td>
         </tr>
     </c:forEach>
-
-
 </table>
 </body>
 </html>

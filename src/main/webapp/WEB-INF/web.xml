@@ -39,4 +39,20 @@
         <servlet-name>DisciplineController</servlet-name>
         <url-pattern>/discipline</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>AddStudentController</servlet-name>
+        <servlet-class>controllers.AddStudentController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddStudentController</servlet-name>
+        <url-pattern>/add_student</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Home</servlet-name>
+        <servlet-class>controllers.HomeController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Home</servlet-name>
+        <url-pattern>/home</url-pattern>
+    </servlet-mapping>
 </web-app>

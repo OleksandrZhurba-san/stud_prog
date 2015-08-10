@@ -7,8 +7,8 @@
 <body>
 <div id="title"><h1> Система управления студентами и их успеваемостью</h1></div>
 <div id="login">
-  <%--<div id="triangle"></div>--%>
-   <form action="login" method="post">
+  <div id="triangle"></div>
+   <form name="login" action="login" method="post">
     <input type="login" name="login" placeholder="Login" />
     <input type="password" name="password" placeholder="Password" />
     <input type="submit" value="Log in" />

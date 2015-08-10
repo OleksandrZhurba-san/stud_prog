@@ -47,7 +47,7 @@ body{
     color:#fff;
 }
 
-form{
+.login{
     background:#f0f0f0;
     padding:6% 4%;
 }
@@ -65,7 +65,7 @@ input[type="password"]{
 }
 
 input[type="submit"]{
-    width:100%;
+    width:93%;
     background:#3399cc;
     border:0;
     padding:4%;
@@ -263,4 +263,11 @@ a {
     -ms-transform: translateY(-100%);
     -webkit-transform: translateY(-100%);
     transform: translateY(-100%);
+}
+
+#create_button {
+    width:250px;
+    margin:0 auto;
+    margin-top:1%;
+    padding:10px;
 }
