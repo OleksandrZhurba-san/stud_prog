@@ -20,7 +20,7 @@
   </div>
 <section class="links">
   <nav class="link-effect-2" id="link-effect-2">
-      <a href="create_discipline"><span data-hover="Добавить">Добавить дисцеплину</span></a>
+      <a href="add_discipline"><span data-hover="Добавить">Добавить дисцеплину</span></a>
       <a href="modify_student"><span data-hover="Модифицировать">Модифицировать студента</span></a>
       <a href="delete_discipline"><span data-hover="Удалить">Удалить дисциплину</span></a>
   </nav>
