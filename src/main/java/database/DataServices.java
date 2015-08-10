@@ -74,6 +74,10 @@ public class DataServices {
         List<Students> students = connection.loadStudents();
         return students;
     }
+    public void addStudent(String first_name, String second_name, String group, String date){
+        DBConnection connection = getDBConnection();
+        connection.addStudent(first_name,second_name,group,date);
+    }
 
     public List<String> loadDiscipline() {
         DBConnection connection = getDBConnection();

@@ -18,8 +18,9 @@ public class DBConnection {
     private static PreparedStatement getUserDataByLogin;
     private static PreparedStatement getUserRoleByUserId;
     private static PreparedStatement loadStudents;
-    private static PreparedStatement createNewStudent;
+    private static PreparedStatement addStudent;
     private static PreparedStatement loadDisciplines;
+    private static PreparedStatement addDiscipline;
 
     public DBConnection() {
         try {
@@ -38,8 +39,10 @@ public class DBConnection {
             getUserDataByLogin = connection.prepareStatement("SELECT * FROM user WHERE login = ?");
             getUserRoleByUserId = connection.prepareStatement("SELECT * FROM user_role WHERE id_user = ?");
             loadStudents = connection.prepareStatement("SELECT * FROM students");
-            createNewStudent = connection.prepareStatement("INSERT INTO students (name, group, date) VALUES (?, ?, ?, ?)");
+            addStudent = connection.prepareStatement("INSERT INTO `students` (`name`, `lastname`, `group`, `date`) VALUES (?,?,?,?)");
             loadDisciplines = connection.prepareStatement("SELECT * FROM discipline");
+            addDiscipline = connection.prepareStatement("");
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -51,6 +54,7 @@ public class DBConnection {
             getUserDataByLogin.close();
             getUserRoleByUserId.close();
             loadDisciplines.close();
+            addStudent.close();
         } catch (SQLException e){
             e.printStackTrace();
         }
@@ -127,7 +131,7 @@ public class DBConnection {
             while (resultSet.next()) {
                 Students student = new Students();
                 student.setFirst_name(resultSet.getString("name"));
-                student.setLast_name(resultSet.getString("last_name"));
+                student.setLast_name(resultSet.getString("lastname"));
                 student.setGroup(resultSet.getString("group"));
                 student.setDate(resultSet.getString("date"));
                 studentsList.add(student);
@@ -153,5 +157,17 @@ public class DBConnection {
             e.printStackTrace();
         }
         return disciplines;
+    }
+
+    public void addStudent(String first_name, String second_name, String group, String date) {
+        try {
+            addStudent.setString(1, first_name);
+            addStudent.setString(2, second_name);
+            addStudent.setString(3, group);
+            addStudent.setString(4, date);
+            addStudent.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
