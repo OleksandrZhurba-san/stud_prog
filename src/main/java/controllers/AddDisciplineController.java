@@ -27,7 +27,7 @@ public class AddDisciplineController extends HttpServlet {
 
         if (discipline.length() > 0) {
             services.addDiscipline(discipline);
-            req.getRequestDispatcher("/WEB-INF/JSP/discipline_list.jsp").forward(req,resp);
+            req.getRequestDispatcher("/WEB-INF/JSP/discipline.jsp").forward(req,resp);
         } else {
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/JSP/error.jsp");
             dispatcher.forward(req,resp);
