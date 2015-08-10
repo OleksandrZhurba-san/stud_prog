@@ -50,11 +50,11 @@ public class LoginController extends HttpServlet {
                     }
                 }
                 req.setAttribute("messageError", "role is not valide");
-                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/JSP/validationMessage.jsp");
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/JSP/error.jsp");
                 dispatcher.forward(req, resp);
             } else {
                 req.setAttribute("messageError", "login is not valid");
-                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/JSP/validationMessage.jsp");
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/JSP/error.jsp");
                 dispatcher.forward(req, resp);
             }
         }

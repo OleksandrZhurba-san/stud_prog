@@ -24,10 +24,6 @@ public class StudentController extends HttpServlet{
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getSession();
-        String[] check = req.getParameterValues("checkboxStudents");
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/JSP/student_creating.jsp");
-        dispatcher.forward(req,resp);
     }
 }
