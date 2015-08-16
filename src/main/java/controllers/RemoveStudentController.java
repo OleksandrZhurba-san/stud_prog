@@ -9,28 +9,27 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class AddDisciplineController extends HttpServlet {
-
+public class RemoveStudentController extends HttpServlet{
     DataServices services = new DataServices();
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getSession();
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/JSP/discipline_add.jsp");
+
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/JSP/student_list.jsp");
         dispatcher.forward(req,resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getSession();
-        String discipline = req.getParameter("discipline");
+        String[] ids = req.getParameterValues("ids");
+        int[] userId = new int[ids.length];
 
-        if (discipline.length() > 0) {
-            services.addDiscipline(discipline);
-            req.getRequestDispatcher("/WEB-INF/JSP/discipline_add.jsp").forward(req,resp);
-        } else {
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/JSP/error.jsp");
-            dispatcher.forward(req,resp);
+        for (int i = 0; i < ids.length; i++){
+            userId[i] = Integer.getInteger(ids[i]);
         }
+        services.removeStudent(userId);
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/JSP/student_list.jsp");
+        dispatcher.forward(req,resp);
     }
 }

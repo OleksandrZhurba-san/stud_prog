@@ -47,11 +47,12 @@ public class LoginController extends HttpServlet {
                         session.setMaxInactiveInterval(500);
                         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/JSP/home.jsp");
                         dispatcher.forward(req,resp);
+                    } else {
+                        req.setAttribute("messageError", "role is not valide");
+                        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/JSP/error.jsp");
+                        dispatcher.forward(req, resp);
                     }
                 }
-                req.setAttribute("messageError", "role is not valide");
-                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/JSP/error.jsp");
-                dispatcher.forward(req, resp);
             } else {
                 req.setAttribute("messageError", "login is not valid");
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/JSP/error.jsp");

@@ -34,7 +34,7 @@ public class AddStudentController extends HttpServlet {
                 if (group.length() > 0) {
                     if (date.length() > 0) {
                         services.addStudent(first_name, second_name, group, date);
-                        req.getRequestDispatcher("/WEB-INF/JSP/student_list.jsp").forward(req, resp);
+                        req.getRequestDispatcher("/WEB-INF/JSP/student_add.jsp").forward(req, resp);
                     } else {
                         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/JSP/error.jsp");
                         dispatcher.forward(req, resp);

@@ -5,6 +5,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <html>
 <head>
+    <script type="text/javascript" src="/resources/js/main.js"></script>
     <title></title>
 </head>
 <body>

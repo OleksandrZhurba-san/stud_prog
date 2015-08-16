@@ -63,4 +63,12 @@
         <servlet-name>addDisciplineController</servlet-name>
         <url-pattern>/add_discipline</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>RemoveStudentController</servlet-name>
+        <servlet-class>controllers.RemoveStudentController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RemoveStudentController</servlet-name>
+        <url-pattern>/student_rem</url-pattern>
+    </servlet-mapping>
 </web-app>

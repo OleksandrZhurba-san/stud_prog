@@ -88,4 +88,12 @@ public class DataServices {
         DBConnection connection = getDBConnection();
         connection.addDiscipline(discipline);
     }
+    public void removeStudent (int[] id){
+        DBConnection connection = getDBConnection();
+        connection.removeStudent(id);
+    }
+    public void removeDiscipline(int[] id) {
+        DBConnection connection = getDBConnection();
+        connection.removeDiscipline(id);
+    }
 }
