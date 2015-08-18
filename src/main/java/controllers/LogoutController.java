@@ -7,13 +7,14 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-public class LogoutController extends HttpServlet {
+public class LogoutController extends AbstractServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession(false);
         if (session != null) {
             session.invalidate();
         }
-        req.getRequestDispatcher("/WEB-INF/JSP/login.jsp").forward(req,resp);
+
+        goToJsp("login.jsp", req, resp);
     }
 }

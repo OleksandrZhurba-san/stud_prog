@@ -1,6 +1,7 @@
 package controllers;
 
 import database.DataServices;
+import entity.Discipline;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,14 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-public class DisciplineController extends HttpServlet {
+public class DisciplineController extends AbstractServlet {
     DataServices services = new DataServices();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getSession();
-        List<String> discipline = services.loadDiscipline();
+        List<Discipline> discipline = services.loadDiscipline();
         req.setAttribute("discipline", discipline);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/JSP/discipline.jsp");
-        dispatcher.forward(req,resp);
+        goToJsp("discipline.jsp", req, resp);
     }
 }

@@ -4,9 +4,11 @@
         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
         version="3.0">
   <display-name>Archetype Created Web Application</display-name>
+
     <welcome-file-list>
-        <welcome-file>/WEB-INF/JSP/login.jsp</welcome-file>
+        <welcome-file>login</welcome-file>
     </welcome-file-list>
+
     <servlet>
         <servlet-name>LoginController</servlet-name>
         <servlet-class>controllers.LoginController</servlet-class>
@@ -45,7 +47,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>AddStudentController</servlet-name>
-        <url-pattern>/add_student</url-pattern>
+        <url-pattern>/add-student</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>Home</servlet-name>
@@ -61,7 +63,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>addDisciplineController</servlet-name>
-        <url-pattern>/add_discipline</url-pattern>
+        <url-pattern>/add-discipline</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>RemoveStudentController</servlet-name>
@@ -69,6 +71,10 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>RemoveStudentController</servlet-name>
-        <url-pattern>/student_rem</url-pattern>
+        <url-pattern>/student-del</url-pattern>
     </servlet-mapping>
+
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
 </web-app>

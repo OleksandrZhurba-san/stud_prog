@@ -13,19 +13,20 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-public class LoginController extends HttpServlet {
+public class LoginController extends AbstractServlet {
 
-    DataServices services = new DataServices();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        DataServices services = new DataServices();
         List<Role> roles = services.loadRoles();
         req.setAttribute("roles", roles);
-        req.getRequestDispatcher("/WEB-INF/JSP/login.jsp").forward(req,resp);
+        goToJsp("login.jsp",req,resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        DataServices services = new DataServices();
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         int idRole = Integer.parseInt(req.getParameter("role"));
@@ -33,30 +34,23 @@ public class LoginController extends HttpServlet {
         Users user = services.getUserDataByLogin(login);
 
         if (user.getId() == 0){
-            req.setAttribute("messageError","Login is not valid");
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/JSP/validationMessage.jsp");
-            dispatcher.forward(req,resp);
+            this.goToErrorPageWithMessage("login is not valide", req, resp);
         }
         List<Role> roles = services.getUserRoleByUserId(user.getId());
         if (user.getLogin().equals(login)){
             if (user.getPassword().equals(password)){
-                for (Role role : roles) {
+                    for (Role role : roles) {
                     if (role.getId() == idRole) {
                         HttpSession session = req.getSession();
-                        session.setAttribute("login",login);
-                        session.setMaxInactiveInterval(500);
+                        session.setAttribute("role",idRole);
                         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/JSP/home.jsp");
                         dispatcher.forward(req,resp);
                     } else {
-                        req.setAttribute("messageError", "role is not valide");
-                        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/JSP/error.jsp");
-                        dispatcher.forward(req, resp);
+                        this.goToErrorPageWithMessage( "role is not valide", req, resp);
                     }
                 }
             } else {
-                req.setAttribute("messageError", "login is not valid");
-                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/JSP/error.jsp");
-                dispatcher.forward(req, resp);
+               this.goToErrorPageWithMessage("password is not valide", req, resp);
             }
         }
 

@@ -14,7 +14,7 @@ function deleteStudents() {
 
     console.log(ids);
     console.log("ids=" + ids);
-    var form = '<form id="deleteStudentForm" action="student_remove" method="post"><input type="hidden" name="ids" /></form>';
+    var form = '<form id="deleteStudentForm" action="student-del" method="post"><input type="hidden" name="ids" /></form>';
     $("body").append(form);
     $('#deleteStudentForm input').val(ids);
     $('#deleteStudentForm').submit();

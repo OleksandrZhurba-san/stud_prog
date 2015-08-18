@@ -1,6 +1,7 @@
 package database;
 
 import constants.Constants;
+import entity.Discipline;
 import entity.Role;
 import entity.Students;
 import entity.Users;
@@ -79,16 +80,16 @@ public class DataServices {
         connection.addStudent(first_name,second_name,group,date);
     }
 
-    public List<String> loadDiscipline() {
+    public List<Discipline> loadDiscipline() {
         DBConnection connection = getDBConnection();
-        List<String> discipline = connection.loadDiscipline();
+        List<Discipline> discipline = connection.loadDiscipline();
         return discipline;
     }
     public void addDiscipline (String discipline) {
         DBConnection connection = getDBConnection();
         connection.addDiscipline(discipline);
     }
-    public void removeStudent (int[] id){
+    public void removeStudent (int id){
         DBConnection connection = getDBConnection();
         connection.removeStudent(id);
     }
