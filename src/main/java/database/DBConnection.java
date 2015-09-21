@@ -1,6 +1,7 @@
 package database;
 
 import constants.Constants;
+import entity.Discipline;
 import entity.Role;
 import entity.Students;
 import entity.Users;
@@ -21,11 +22,13 @@ public class DBConnection {
     private static PreparedStatement addStudent;
     private static PreparedStatement loadDisciplines;
     private static PreparedStatement addDiscipline;
+    private static PreparedStatement removeStudent;
+    private static PreparedStatement removeDiscipline;
 
     public DBConnection() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection(Constants.CONNECTION_URL,Constants.CONNECTION_LOGIN,Constants.CONNECTION_PASSWORD);
+            connection = DriverManager.getConnection(Constants.CONNECTION_URL, Constants.CONNECTION_LOGIN, Constants.CONNECTION_PASSWORD);
             loadPreparedStatements();
         } catch (Exception e) {
             e.printStackTrace();
@@ -38,15 +41,20 @@ public class DBConnection {
             getRoleById = connection.prepareStatement("SELECT * FROM role WHERE id = ?");
             getUserDataByLogin = connection.prepareStatement("SELECT * FROM user WHERE login = ?");
             getUserRoleByUserId = connection.prepareStatement("SELECT * FROM user_role WHERE id_user = ?");
-            loadStudents = connection.prepareStatement("SELECT * FROM students");
+            loadStudents = connection.prepareStatement("SELECT * FROM students WHERE status=1");
             addStudent = connection.prepareStatement("INSERT INTO `students` (`name`, `lastname`, `group`, `date`) VALUES (?,?,?,?)");
             loadDisciplines = connection.prepareStatement("SELECT * FROM discipline");
-            addDiscipline = connection.prepareStatement("INSERT INTO `discipline` (`disciple`) VALUE (?)");
+            addDiscipline = connection.prepareStatement("INSERT INTO `discipline` (`discipline`) VALUE (?)");
+            removeDiscipline = connection.prepareStatement("DELETE FROM `discipline` WHERE `id`=?");
+            // TODO skdskdhskjdbsk
+            removeStudent = connection.prepareStatement("");
+
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
     public void closePreparedStatements() {
         try {
             loadRoles.close();
@@ -55,11 +63,12 @@ public class DBConnection {
             getUserRoleByUserId.close();
             loadDisciplines.close();
             addStudent.close();
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-    public Role getRoleById(int id){
+
+    public Role getRoleById(int id) {
         resultSet = null;
         Role role = new Role();
         try {
@@ -74,6 +83,7 @@ public class DBConnection {
         }
         return role;
     }
+
     public List<Role> loadRoles() {
         resultSet = null;
         List<Role> roles = new LinkedList<Role>();
@@ -85,18 +95,19 @@ public class DBConnection {
                 role.setRole(resultSet.getString("role"));
                 roles.add(role);
             }
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return roles;
     }
-    public Users getUserDataByLogin (String login) {
+
+    public Users getUserDataByLogin(String login) {
         resultSet = null;
         Users user = new Users();
         try {
             getUserDataByLogin.setString(1, login);
             resultSet = getUserDataByLogin.executeQuery();
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 user.setId(resultSet.getInt("id"));
                 user.setLogin(resultSet.getString("login"));
                 user.setPassword(resultSet.getString("password"));
@@ -106,6 +117,7 @@ public class DBConnection {
         }
         return user;
     }
+
     public List<Role> getUserRoleByUserId(int id) {
         resultSet = null;
         List<Role> roles = new LinkedList<Role>();
@@ -130,6 +142,7 @@ public class DBConnection {
             resultSet = loadStudents.executeQuery();
             while (resultSet.next()) {
                 Students student = new Students();
+                student.setId(resultSet.getInt("id"));
                 student.setFirst_name(resultSet.getString("name"));
                 student.setLast_name(resultSet.getString("lastname"));
                 student.setGroup(resultSet.getString("group"));
@@ -141,17 +154,17 @@ public class DBConnection {
         }
         return studentsList;
     }
-    public void CreateNewStudent (){
 
-    }
-
-    public List<String> loadDiscipline() {
+    public List<Discipline> loadDiscipline() {
         resultSet = null;
-        List<String> disciplines = new LinkedList<String>();
-        try{
+        List<Discipline> disciplines = new LinkedList<Discipline>();
+        try {
             resultSet = loadDisciplines.executeQuery();
             while (resultSet.next()) {
-                disciplines.add(resultSet.getString("discipline"));
+                Discipline discipline = new Discipline();
+                discipline.setId(resultSet.getInt("id"));
+                discipline.setName(resultSet.getString("discipline"));
+                disciplines.add(discipline);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -170,9 +183,31 @@ public class DBConnection {
             e.printStackTrace();
         }
     }
+
     public void addDiscipline(String discipline) {
         try {
-            addDiscipline.setString(1,discipline);
+            addDiscipline.setString(1, discipline);
+            addDiscipline.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void removeStudent(int id) {
+        try {
+            removeStudent.setInt(1, id);
+            removeStudent.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void removeDiscipline(int[] id) {
+        try {
+            for (int i = 0; i < id.length; i++) {
+                removeDiscipline.setInt(1, id[i]);
+                removeDiscipline.executeUpdate();
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }

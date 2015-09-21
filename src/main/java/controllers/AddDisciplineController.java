@@ -1,6 +1,8 @@
 package controllers;
 
 import database.DataServices;
+import entity.Discipline;
+import entity.Students;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,29 +10,28 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
-public class AddDisciplineController extends HttpServlet {
-
-    DataServices services = new DataServices();
+public class AddDisciplineController extends AbstractServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getSession();
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/JSP/discipline_add.jsp");
-        dispatcher.forward(req,resp);
+        goToJsp("discipline_add.jsp", req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getSession();
+        DataServices services = new DataServices();
         String discipline = req.getParameter("discipline");
 
         if (discipline.length() > 0) {
             services.addDiscipline(discipline);
-            req.getRequestDispatcher("/WEB-INF/JSP/discipline.jsp").forward(req,resp);
+            List<Discipline> disciplines = services.loadDiscipline();
+
+            req.setAttribute("disciplines", disciplines);
+            goToJsp("discipline.jsp", req, resp);
         } else {
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/JSP/error.jsp");
-            dispatcher.forward(req,resp);
+            goToErrorPageWithMessage("input is blank!!!", req, resp);
         }
     }
 }
