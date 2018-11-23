@@ -7,24 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3481539e-ef58-4212-8c05-8fb7a9ec2089" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/constants/Constants.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/controllers/AbstractServlet.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/controllers/AddDisciplineController.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/controllers/AddStudentController.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/controllers/DisciplineController.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/controllers/HomeController.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/controllers/LoginController.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/controllers/LogoutController.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/controllers/RemoveStudentController.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/controllers/StudentController.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/database/DBConnection.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/database/DataServices.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/entity/Discipline.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/entity/Role.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/entity/Students.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/entity/Users.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/listeners/ContextListener.class" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
@@ -108,7 +91,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="student_list.jsp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="student_list.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/JSP/student_list.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
@@ -118,11 +101,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="22">
-              <caret line="1" column="6" lean-forward="false" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+              <caret line="1" column="9" lean-forward="false" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -706,12 +689,12 @@
       <workItem from="1438854130498" duration="9889000" />
       <workItem from="1542980710742" duration="111000" />
       <workItem from="1542980906826" duration="159000" />
-      <workItem from="1542981111080" duration="1535000" />
+      <workItem from="1542981111080" duration="1659000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11694000" />
+    <option name="totallyTimeSpent" value="11818000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="22" width="1936" height="1066" extended-state="6" />
@@ -1145,18 +1128,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/JSP/student_list.jsp">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        <state relative-caret-position="22">
+          <caret line="1" column="9" lean-forward="false" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/JSP/student_list.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" column="6" lean-forward="false" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+        <state relative-caret-position="330">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
           <folding />
         </state>
       </provider>
