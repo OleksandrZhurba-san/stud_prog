@@ -89,7 +89,7 @@ input[type="submit"]:hover{
     font-family:'Open Sans',sans-serif;
     font-size: 95%;
     line-height: 1;
-    background: url("/resources/images/arrow.png")
+    background: url("/resources/images/arrow.png");
     -webkit-appearance: none;
     width: 100%;
 }
